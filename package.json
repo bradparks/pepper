@@ -14,8 +14,9 @@
     "min_height": 500
   },
   "dependencies" : {
-    "level" : "*",
+    "nedb" : "~0.8",
     "domify" : "component/domify",
-    "domready" : "jb55/domready"
+    "domready" : "jb55/domready",
+    "imap" : "*"
   }
 }
