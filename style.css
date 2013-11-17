@@ -1,3 +1,10 @@
+
+/**
+ * Import pepper styles.
+ */
+
+@import url('views/index.css');
+
 /**
  *  Overall styles.
  */

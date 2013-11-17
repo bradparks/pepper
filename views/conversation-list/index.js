@@ -1,6 +1,5 @@
 var domify = require('domify');
 var template = require('./index.html');
-var level = require('level');
 
 /**
  * Expose `ConversationList`.
