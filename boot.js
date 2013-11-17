@@ -1,15 +1,10 @@
 
 /**
- * A fix for client-side components to work via require.
- */
-
-global.document = window.document;
-
-/**
- * General modules.
+ * Third party modules.
  */
 
 var domready = require('domready');
+global.reactive = window.reactive;
 
 /**
  * Pepper modules.
@@ -18,7 +13,7 @@ var domready = require('domready');
 var views = require('./views');
 
 /**
- * Get the app started.
+ * Boot up the app.
  */
 
 domready(function () {

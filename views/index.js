@@ -1,4 +1,8 @@
 
+/**
+ * Expose Pepper views.
+ */
+
 exports.Account = require('./account');
 
 exports.Folder = require('./folder');
