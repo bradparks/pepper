@@ -1,6 +1,6 @@
 
 run:
-	open -n -a node-webkit ../pepper-app
+	open -n -a node-webkit .
 
 clean:
 	rm -f build/*
