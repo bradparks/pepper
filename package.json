@@ -1,16 +1,19 @@
 {
   "name": "Pepper",
   "description": "Email like sparrow, but with node webkit.",
-  "version": "0.1",
+  "version": "0.0.1",
   "main": "index.html",
   "window": {
     "toolbar": true,
     "show": true,
     "frame": true,
-    "position": "center",
+    "position": "left",
     "width": 900,
     "height": 700,
     "min_width": 800,
     "min_height": 500
+  },
+  "dependencies" : {
+    "level" : "*"
   }
 }
