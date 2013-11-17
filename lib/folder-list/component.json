@@ -1,7 +1,7 @@
 {
   "name": "folder-list",
   "dependencies": {
-
+    "component/domify": "*"
   },
   "styles": [
     "index.css"

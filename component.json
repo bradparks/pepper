@@ -1,7 +1,7 @@
 {
   "name": "pepper-app",
   "dependencies": {
-
+    "jb55/domready": "*"
   },
   "paths": [
     ".",
@@ -16,7 +16,5 @@
     "folder",
     "folder-list"
   ],
-  "scripts": [
-    "app.js"
-  ]
+  "scripts": []
 }

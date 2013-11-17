@@ -1,7 +1,7 @@
 {
   "name": "conversation-list",
   "dependencies": {
-
+    "component/domify": "*"
   },
   "styles": [
     "index.css"

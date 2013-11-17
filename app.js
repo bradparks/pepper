@@ -1,4 +1,24 @@
-var folderList = require('folder-list');
-var conversationList = require('conversation-list');
-var emailList = require('email-list');
 
+/**
+ * General modules.
+ */
+
+var domready = require('domready');
+
+/**
+ * Pepper modules.
+ */
+
+var FolderList = require('folder-list');
+var ConversationList = require('conversation-list');
+var EmailList = require('email-list');
+
+/**
+ * Get the app started.
+ */
+
+domready(function () {
+  var folderList = new FolderList();
+  var conversationList = new ConversationList();
+  var emailList = new EmailList();
+});
