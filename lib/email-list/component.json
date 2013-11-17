@@ -1,0 +1,16 @@
+{
+  "name": "email-list",
+  "dependencies": {
+
+  },
+  "styles": [
+    "index.css"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "templates": [
+    "index.html"
+  ],
+  "main": "index.js"
+}

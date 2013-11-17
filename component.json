@@ -1,0 +1,22 @@
+{
+  "name": "pepper-app",
+  "dependencies": {
+
+  },
+  "paths": [
+    ".",
+    "lib"
+  ],
+  "local": [
+    "account",
+    "conversation",
+    "conversation-list",
+    "email",
+    "email-list",
+    "folder",
+    "folder-list"
+  ],
+  "scripts": [
+    "app.js"
+  ]
+}

@@ -1,0 +1,12 @@
+.conversation {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  width: 229px;
+  height: 60px;
+  background-color: rgb(252, 252, 252);
+  border-bottom: 1px solid #CDCDCD;
+}
+.conversation.selected {
+  background-color: rgb(235, 235, 235);
+}
