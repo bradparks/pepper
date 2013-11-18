@@ -11,7 +11,6 @@ global.reactive = window.reactive;
  */
 
 var conf = require('./conf');
-var Sync = require('./sync');
 var views = require('./views');
 
 /**

@@ -1,4 +1,8 @@
 var domify = require('domify');
+var events = require('event-component');
+var bind = require('bind-component');
+var Emitter = require('emitter-component');
+
 var template = require('./index.html');
 
 /**
@@ -8,6 +12,12 @@ var template = require('./index.html');
 module.exports = Folder;
 
 /**
+ * Mixin emitter.
+ */
+
+Emitter(Folder.prototype);
+
+/**
  * Initialize a new `Folder`.
  */
 
@@ -15,6 +25,8 @@ function Folder(options, sync, el) {
   this.options = options || {};
   this.el = el || domify(template);
   this.reactive = reactive(this.el, this.options, this);
+  bind(this, this.select);
+  events.bind(this.el, 'click', this.select);
 }
 
 /**
@@ -22,15 +34,15 @@ function Folder(options, sync, el) {
  */
 
 Folder.prototype.count = function () {
-  console.log('called');
   return Math.round(10 * Math.random()); // TODO
 };
 
 /**
- * Reactive binding for whether folder count should be shown.
+ * Select this folder to show in the conversations view.
  */
 
-Folder.prototype.hasCount = function () {
-  return true;
+Folder.prototype.select = function () {
+  this.options.selected = true;
+  this.emit('selected folder', this, this.options.sync);
 };
 

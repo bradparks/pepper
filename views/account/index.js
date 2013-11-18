@@ -1,8 +1,12 @@
 var domify = require('domify');
 var query = require('query');
+var bind = require('bind-component');
 var _ = require('underscore');
+
 var FolderListView = require('../folder-list');
 var FolderView = require('../folder');
+var ConversationListView = require('../conversation-list');
+
 var template = require('./index.html');
 
 /**
@@ -21,6 +25,7 @@ function Account(sync) {
   this.sync = sync;
   this.sync.on('folders', this.onFolders);
   this.folders = new FolderListView(this.sync);
+  this.conversations = new ConversationListView();
 }
 
 /**
@@ -29,7 +34,6 @@ function Account(sync) {
 
 Account.prototype.render = function () {
   this.el = domify(template);
-  reactive(this.el, { count : '' }, this);
   document.body.appendChild(this.el);
 };
 
@@ -44,14 +48,17 @@ Account.prototype.onFolders = function (sync, folders) {
     var el = query('.'+folder.name);
     if (el) {
       self.defaultFolders[folder.name] = new FolderView(folder, sync, el);
+      console.log(self, self.prototype, self.onFolderSelected);
+      //self.defaultFolders[folder.name].on('selected folder', self.onFolderSelected);
     }
   });
+  //self.defaultFolders.inbox.select();
 };
 
 /**
- * Icon url.
+ * Handler for when folders get selected;
  */
 
-Account.prototype.iconUrl = function () {
-  return 'images/gmail.png';
+Account.prototype.onFolderSelected = function (view, sync) {
+  //this.conversations.setFolder(sync);
 };

@@ -14,12 +14,12 @@
     "min_height": 500
   },
   "dependencies" : {
-    "nedb" : "~0.8",
     "domify" : "component/domify",
     "query" : "component/query",
+    "event" : "component/event",
     "domready" : "jb55/domready",
+    "bind" : "component/bind",
     "emitter-component" : "*",
-    "imap" : "*",
     "underscore" : "*"
   }
 }
