@@ -1,0 +1,42 @@
+.account {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-color: #333;
+  border: none;
+}
+
+.account-icon {
+  padding-top: 3px;
+  padding-left: 8px;
+}
+
+.account-folders {
+  position: relative;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 400px;
+}
+
+.default-folder {
+  margin-top: 15px;
+  height: 35px;
+  color: #DFDFDF;
+  font-size: 22px;
+  width: 100%;
+  text-align: center;
+}
+.default-folder > * {
+  width: 100%;
+  text-align: center;
+}
+.default-folder.selected {
+  color: rgb(0, 150, 250);
+}
+.default-folder > .folder-counter {
+  margin-top: -3px;
+  font-size: 10px;
+}

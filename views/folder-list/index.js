@@ -1,4 +1,6 @@
 var domify = require('domify');
+var _ = require('underscore');
+var Folder = require('../folder');
 var template = require('./index.html');
 
 /**
@@ -11,9 +13,16 @@ module.exports = FolderList;
  * Initialize a new `FolderList`.
  */
 
-function FolderList() {
-  if (!(this instanceof FolderList)) return new FolderList();
-  this.el = domify(template);
-  document.body.appendChild(this.el);
+function FolderList(sync) {
+  if (!(this instanceof FolderList)) return new FolderList(sync);
+  sync.on('folders', this.render);
 }
+
+/**
+ * Render the folder list.
+ */
+
+FolderList.prototype.render = function (sync, folders) {
+  // TODO
+};
 

@@ -7,7 +7,7 @@
     "toolbar": true,
     "show": true,
     "frame": true,
-    "position": "left",
+    "position": "mouse",
     "width": 900,
     "height": 700,
     "min_width": 800,
@@ -17,6 +17,8 @@
     "nedb" : "~0.8",
     "domify" : "component/domify",
     "domready" : "jb55/domready",
-    "imap" : "*"
+    "emitter-component" : "*",
+    "imap" : "*",
+    "underscore" : "*"
   }
 }

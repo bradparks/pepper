@@ -6,6 +6,12 @@
 @import url('views/index.css');
 
 /**
+ * Import icon styles.
+ */
+
+@import url('fonts/icons.css');
+
+/**
  *  Overall styles.
  */
 
@@ -16,6 +22,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 ul {
