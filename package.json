@@ -16,6 +16,7 @@
   "dependencies" : {
     "nedb" : "~0.8",
     "domify" : "component/domify",
+    "query" : "component/query",
     "domready" : "jb55/domready",
     "emitter-component" : "*",
     "imap" : "*",

@@ -2,6 +2,8 @@ var Imap = require('imap');
 var _ = require('underscore');
 var Emitter = require('emitter-component');
 
+var FolderSync = require('./folder');
+
 /**
  * Expose `AccountSync`.
  */
@@ -50,6 +52,12 @@ AccountSync.prototype.ready = function () {
   var self = this;
   this.imap.getBoxes(function (err, boxes) {
     var folders = extractFolders(boxes);
+    folders = _.map(folders, function (folder) {
+      var name = folder.name;
+      var path = folder.path + folder.name;
+      folder.sync = new FolderSync(self.imap, name, path+name);
+      return folder;
+    });
     self.emit('folders', self, folders);
   });
 };
@@ -77,15 +85,15 @@ AccountSync.prototype.end = function () {
 function extractFolders (boxes, path, folders) {
   path = path || '';
   folders = folders || [];
-  _.each(_.keys(boxes), function (key) {
-    var box = boxes[key];
+  _.each(_.keys(boxes), function (name) {
+    var box = boxes[name];
     if (box.children) {
-      extractFolders(box.children, key+box.delimiter, folders);
+      extractFolders(box.children, name+box.delimiter, folders);
     }
     else {
       folders.push({
-        name : key,
-        path : path + key,
+        name : name.toLowerCase(),
+        path : path + name,
         attributes : box.attribs
       });
     }

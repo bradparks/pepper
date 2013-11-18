@@ -1,6 +1,8 @@
 var domify = require('domify');
+var query = require('query');
 var _ = require('underscore');
-var FolderList = require('../folder-list');
+var FolderListView = require('../folder-list');
+var FolderView = require('../folder');
 var template = require('./index.html');
 
 /**
@@ -17,7 +19,8 @@ function Account(sync) {
   if (!(this instanceof Account)) return new Account(sync);
   this.render();
   this.sync = sync;
-  this.folders = new FolderList(this.sync);
+  this.sync.on('folders', this.onFolders);
+  this.folders = new FolderListView(this.sync);
 }
 
 /**
@@ -26,8 +29,23 @@ function Account(sync) {
 
 Account.prototype.render = function () {
   this.el = domify(template);
-  reactive(this.el, {}, this);
+  reactive(this.el, { count : '' }, this);
   document.body.appendChild(this.el);
+};
+
+/**
+ * Handler for when folders are loaded.
+ */
+
+Account.prototype.onFolders = function (sync, folders) {
+  var self = this;
+  this.defaultFolders = {};
+  _.each(folders, function (folder) {
+    var el = query('.'+folder.name);
+    if (el) {
+      self.defaultFolders[folder.name] = new FolderView(folder, sync, el);
+    }
+  });
 };
 
 /**

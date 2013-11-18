@@ -15,14 +15,14 @@ module.exports = FolderList;
 
 function FolderList(sync) {
   if (!(this instanceof FolderList)) return new FolderList(sync);
-  sync.on('folders', this.render);
+  sync.on('folders', this.onFolders);
 }
 
 /**
  * Render the folder list.
  */
 
-FolderList.prototype.render = function (sync, folders) {
+FolderList.prototype.onFolders = function (sync, folders) {
   // TODO
 };
 
